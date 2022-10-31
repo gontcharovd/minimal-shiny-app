@@ -22,7 +22,7 @@ jobs:
     - name: Log in to registry
       uses: docker/login-action@v1
       with:
-        registry: https://ghcr.io/
+        registry: https://containterregistry7cwkv6diblxjy.azurecr.io
         username: ${{ secrets.AzureAppService_ContainerUsername_f1f504afd03349fea469fa3d44c62373 }}
         password: ${{ secrets.AzureAppService_ContainerPassword_2099cd29324646b2b34d32fc5cd2d424 }}
 
@@ -30,7 +30,7 @@ jobs:
       uses: docker/build-push-action@v2
       with:
         push: true
-        tags: ghcr.io/${{ secrets.AzureAppService_ContainerUsername_f1f504afd03349fea469fa3d44c62373 }}/containterregistry7cwkv6diblxjy.azurecr.io/compressor:${{ github.sha }}
+        tags: containterregistry7cwkv6diblxjy.azurecr.io/${{ secrets.AzureAppService_ContainerUsername_f1f504afd03349fea469fa3d44c62373 }}/containterregistry7cwkv6diblxjy.azurecr.io/compressor:${{ github.sha }}
         file: ./Dockerfile
 
   deploy:
@@ -48,4 +48,4 @@ jobs:
         app-name: 'webbapp7cwkv6diblxjy'
         slot-name: 'production'
         publish-profile: ${{ secrets.AzureAppService_PublishProfile_6b1233ce0d0640df9b4dcde4a3a27aed }}
-        images: 'ghcr.io/${{ secrets.AzureAppService_ContainerUsername_f1f504afd03349fea469fa3d44c62373 }}/containterregistry7cwkv6diblxjy.azurecr.io/compressor:${{ github.sha }}'
+        images: 'containterregistry7cwkv6diblxjy.azurecr.io/${{ secrets.AzureAppService_ContainerUsername_f1f504afd03349fea469fa3d44c62373 }}/containterregistry7cwkv6diblxjy.azurecr.io/compressor:${{ github.sha }}'
