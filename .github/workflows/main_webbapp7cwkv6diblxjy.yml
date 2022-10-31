@@ -33,12 +33,12 @@ jobs:
         tags: containterregistry7cwkv6diblxjy.azurecr.io/minimalshiny:${{ github.sha }}
         file: ./Dockerfile
 
-  deploy:
-    runs-on: ubuntu-latest
-    needs: build
-    environment:
-      name: 'production'
-      url: ${{ steps.deploy-to-webapp.outputs.webapp-url }}
+#  deploy:
+#    runs-on: ubuntu-latest
+#    needs: build
+#    environment:
+#      name: 'production'
+#      url: ${{ steps.deploy-to-webapp.outputs.webapp-url }}
 
 #     steps:
 #     - name: Deploy to Azure Web App
