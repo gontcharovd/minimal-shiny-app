@@ -30,7 +30,7 @@ jobs:
       uses: docker/build-push-action@v2
       with:
         push: true
-        tags: containterregistry7cwkv6diblxjy.azurecr.io/${{ secrets.AzureAppService_ContainerUsername_f1f504afd03349fea469fa3d44c62373 }}/containterregistry7cwkv6diblxjy.azurecr.io/compressor:${{ github.sha }}
+        tags: containterregistry7cwkv6diblxjy.azurecr.io/minimalshiny:${{ github.sha }}
         file: ./Dockerfile
 
   deploy:
@@ -40,12 +40,12 @@ jobs:
       name: 'production'
       url: ${{ steps.deploy-to-webapp.outputs.webapp-url }}
 
-    steps:
-    - name: Deploy to Azure Web App
-      id: deploy-to-webapp
-      uses: azure/webapps-deploy@v2
-      with:
-        app-name: 'webbapp7cwkv6diblxjy'
-        slot-name: 'production'
-        publish-profile: ${{ secrets.AzureAppService_PublishProfile_6b1233ce0d0640df9b4dcde4a3a27aed }}
-        images: 'containterregistry7cwkv6diblxjy.azurecr.io/${{ secrets.AzureAppService_ContainerUsername_f1f504afd03349fea469fa3d44c62373 }}/containterregistry7cwkv6diblxjy.azurecr.io/compressor:${{ github.sha }}'
+#     steps:
+#     - name: Deploy to Azure Web App
+#       id: deploy-to-webapp
+#       uses: azure/webapps-deploy@v2
+#       with:
+#         app-name: 'webbapp7cwkv6diblxjy'
+#         slot-name: 'production'
+#         publish-profile: ${{ secrets.AzureAppService_PublishProfile_6b1233ce0d0640df9b4dcde4a3a27aed }}
+#         images: 'containterregistry7cwkv6diblxjy.azurecr.io/containterregistry7cwkv6diblxjy.azurecr.io/minimalshiny:${{ github.sha }}'
