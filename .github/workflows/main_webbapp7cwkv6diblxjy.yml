@@ -30,7 +30,7 @@ jobs:
       uses: docker/build-push-action@v2
       with:
         push: true
-        tags: containterregistry7cwkv6diblxjy.azurecr.io/minimalshiny:${{ github.sha }}
+        tags: containterregistry7cwkv6diblxjy.azurecr.io/minimalshiny:latest
         file: ./Dockerfile
 
   deploy:
@@ -48,4 +48,4 @@ jobs:
         app-name: 'webbapp7cwkv6diblxjy'
         slot-name: 'production'
         publish-profile: ${{ secrets.AzureAppService_PublishProfile_6b1233ce0d0640df9b4dcde4a3a27aed }}
-        images: 'containterregistry7cwkv6diblxjy.azurecr.io/containterregistry7cwkv6diblxjy.azurecr.io/minimalshiny:${{ github.sha }}'
+        images: 'containterregistry7cwkv6diblxjy.azurecr.io/containterregistry7cwkv6diblxjy.azurecr.io/minimalshiny:latest'
