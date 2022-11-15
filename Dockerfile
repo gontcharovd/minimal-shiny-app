@@ -4,6 +4,6 @@ WORKDIR /home/app
 
 COPY app.R .
 
-EXPOSE 80
+EXPOSE 8080
 
-CMD R -e "shiny::runApp('app.R', host = '0.0.0.0', port = 80)"
+CMD R -e "shiny::runApp('app.R', host = '0.0.0.0', port = 8080)"
